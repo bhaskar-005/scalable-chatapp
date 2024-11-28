@@ -1,0 +1,11 @@
+from node:latest
+
+WORKDIR /app
+
+COPY package.json package-lock.json ./
+RUN npm install
+
+COPY index.js ./index.js
+COPY .env ./.env
+
+CMD ["npm","run","start"]

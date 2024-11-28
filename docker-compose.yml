@@ -1,0 +1,33 @@
+version: "3.7"
+
+services:
+    redis_pubsub:
+       image: redis:latest
+       ports:
+          - "6379:6379"
+
+
+    backend:
+       #  either use the build or image directive
+       build: ./backend
+       ports:
+          - "3020:3020"
+       depends_on: 
+          - redis_pubsub  # wait for the redis to start first.
+
+
+    auth_backend:
+       build: ./auth-backend
+       ports: 
+          - "8888:8888"
+       depends_on: 
+          - backend
+    
+
+    frontend:
+       build: ./fronend
+       ports:
+         -  "3000:3000"
+       depends_on: 
+         -  auth_backend
+         -  backend

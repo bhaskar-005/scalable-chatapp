@@ -1,0 +1,1 @@
+{"root":["./src/index.ts","./src/controller/allusers.ts","./src/controller/login.ts","./src/controller/signup.ts","./src/dbconnect/index.ts","./src/model/user.model.ts","./src/routes/user.ts","./src/utils/cookie.ts"],"version":"5.7.2"}
